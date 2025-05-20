@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.logo-container {
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 70px;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(31, 41, 55, 0.8);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.countdown-label {
+    color: rgba(209, 213, 219, 0.7);
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.email-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.notify-btn {
+    background: linear-gradient(to right, #8b5cf6, #ec4899);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    width: auto;
+}
+
+.notify-btn:hover {
+    opacity: 0.9;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .countdown-number {
+        font-size: 3rem;
+        min-width: 100px;
+    }
+    .countdown-item {
+        min-width: 100px;
+    }
+}
