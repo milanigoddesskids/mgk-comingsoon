@@ -1,39 +1,32 @@
-// Countdown Timer Script
-// Set the date we're counting down to (replace with your launch date)
-const countDownDate = new Date();
-countDownDate.setDate(countDownDate.getDate() + 30); // 30 days from now
+const countDownDate = new Date("2025-06-21T00:00:00Z").getTime(); // UTC format recommended
 
 // Update the countdown every 1 second
 const updateCountdown = function() {
     const now = new Date().getTime();
     const distance = countDownDate - now;
 
-    // Time calculations for days, hours, minutes and seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result
-    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
-    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-
-    // If the countdown is finished
     if (distance < 0) {
         clearInterval(countdownInterval);
         document.getElementById('days').innerHTML = "00";
         document.getElementById('hours').innerHTML = "00";
         document.getElementById('minutes').innerHTML = "00";
         document.getElementById('seconds').innerHTML = "00";
+        return;
     }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
 };
 
-// Run immediately to avoid initial delay
+// Run once and then every second
 updateCountdown();
-
-// Then update every second
 const countdownInterval = setInterval(updateCountdown, 1000);
 
 // Particles.js Script
